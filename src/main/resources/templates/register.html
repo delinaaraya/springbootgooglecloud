@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>CST-339 Milestone Register</title>
 </head>
+<!--Register view-->
 <body>
 <div layout:fragment="content">
 	<form action="#" th:action="@{doRegister}" th:object="${userModel}" method="post">
@@ -30,6 +31,7 @@
 				<td colspan="7"><input type="submit" value="Submit" /></td>
 			</tr>
 		</table>
+		<!--Will appear if the user fails to register with the required parameters-->
 		<div th:if="${#fields.hasErrors('*')}">List of Errors</div>
 		<div th:each="err : ${#fields.errors('*')}">
 			<span style="color:red" th:text="${err}" class="fieldError"></span>

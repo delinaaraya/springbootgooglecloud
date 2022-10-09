@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class MainController
 {
+	//Displays the home view.
 	@GetMapping("")
 	public String display(Model model)
 	{

@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>CST-339 Milestone Login</title>
 </head>
+<!--Login view-->
 <body>
 <div layout:fragment="content">
 	<form action="#" th:action="@{doLogin}" th:object="${userModel}" method="post">
@@ -22,6 +23,7 @@
 				<td colspan="3"><input type="submit" value="Submit" /></td>
 			</tr>
 		</table>
+		<!--Will appear if the user fails to log in with the required parameters-->
 		<div th:if="${#fields.hasErrors('*')}">List of Errors</div>
 		<div th:each="err : ${#fields.errors('*')}">
 			<span style="color:red" th:text="${err}" class="fieldError"></span>

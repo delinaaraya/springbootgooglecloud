@@ -14,6 +14,7 @@ import com.gcu.model.UserModel;
 @RequestMapping("/register/")
 public class RegistrationController
 {
+	//Displays the register view.
 	@GetMapping("")
 	public String display(Model model)
 	{
@@ -23,6 +24,7 @@ public class RegistrationController
 		return "register";
 	}
 	
+	//Post request to add user data to the database and redirect the user to the products page.
 	@PostMapping("/doRegister")
 	public String doRegister(@Valid UserModel userModel, BindingResult bindingResult, Model model)
 	{
