@@ -4,7 +4,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class UserModel {
+public class UserRegistrationModel {
 	//The properties that identifies a user.
 	@NotNull(message="Username is a required field")
 	@Size(min=1, max=32, message="Username must be between 1 and 32 characters")
@@ -68,7 +68,7 @@ public class UserModel {
 		this.phone = phone;
 	}
 	//Default class constructor.
-	public UserModel(String username, String password, String fname, String lname, 
+	public UserRegistrationModel(String username, String password, String fname, String lname, 
 			String email, int phone)
 	{
 		super();
@@ -79,13 +79,13 @@ public class UserModel {
 		this.email = email;
 		this.phone = phone;
 	}
-	public UserModel(String username, String password) {
+	public UserRegistrationModel(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
 	}
 	//Empty class constructor.
-	public UserModel() {
+	public UserRegistrationModel() {
 		//this(" "," "," "," "," ", 0);
 	}
 	

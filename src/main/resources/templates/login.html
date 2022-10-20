@@ -7,7 +7,7 @@
 <!--Login view-->
 <body>
 <div layout:fragment="content">
-	<form action="#" th:action="@{doLogin}" th:object="${userModel}" method="post">
+	<form action="#" th:action="@{doLogin}" th:object="${userLoginModel}" method="post">
 		<table>
 			<tr>
 				<td>Username:</td><td><input type="text" th:field="*{username}" ></td><td><h5 style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</h5></td>
@@ -15,12 +15,14 @@
 			<tr>
 				<td>Password:</td><td><input type="password" th:field="*{password}"></td><td><h5 style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</h5></td>
 			</tr>
+			<!--
 			<input type="hidden" th:field="*{fname}">
 			<input type="hidden" th:field="*{lname}">
 			<input type="hidden" th:field="*{phone}">
 			<input type="hidden" th:field="*{email}">
+			-->
 			<tr>
-				<td colspan="3"><input type="submit" value="Submit" /></td>
+				<td colspan="2"><input type="submit" value="Submit" /></td>
 			</tr>
 		</table>
 		<!--Will appear if the user fails to log in with the required parameters-->

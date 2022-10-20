@@ -9,27 +9,26 @@
 	<div layout:fragment="content">
 	<!-- <p>Test</p> -->
 	<table style="width:50%">
-		<!--
 		<thead>
 			<tr>
 				<th style="text-align:center">Product ID</th>
 				<th style="text-align:center">Product Name</th>
-				<th style="text-align:center">Price</th>
-				<th style="text-align:center">Quantity</th>
+				<th style="text-align:center">Product Price</th>
+				<th style="text-align:center">Product Description</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:if="${orders.empty}">
-				<td style="text-align:center">No Orders Available</td>
+			<tr th:if="${products.empty}">
+				<td style="text-align:center">No Product Available</td>
 			</tr>
-			<tr th:each="order : ${orders}">
-				<th style="text-align:center"><h5 th:text="${order.orderNo}">0000000001</h5></th>
-				<th style="text-align:center"><h5 th:text="${order.productName}">Product 1</h5></th>
-				<th style="text-align:center"><h5 th:text="${order.price}">1.00</h5></th>
-				<th style="text-align:center"><h5 th:text="${order.quantity}">1</h5></th>
+			<tr th:each="product : ${products}">
+				<th style="text-align:center"><h5 th:text="${product.id}">0000000001</h5></th>
+				<th style="text-align:center"><h5 th:text="${product.name}">Product 1</h5></th>
+				<th style="text-align:center"><h5 th:text="${product.price}">1</h5></th>
+				<th style="text-align:center"><h5 th:text="${product.description}">Product Description</h5></th>
 			</tr>
 		</tbody>
-		-->
+		<!--
 		<thead>
 			<tr>
 				<th style="text-align:center">Placeholder</th>
@@ -40,6 +39,7 @@
 				<th style="text-align:center">Placeholder</th>
 			</tr>
 		</tbody>
+		-->
 	</table>
 	</div>
 </body>
