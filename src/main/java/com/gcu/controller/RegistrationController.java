@@ -1,19 +1,28 @@
 package com.gcu.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.gcu.business.ProductBusinessServiceInterface;
+import com.gcu.model.ProductModel;
 import com.gcu.model.UserRegistrationModel;
 
 @Controller
 @RequestMapping("/register/")
 public class RegistrationController
 {
+	@Autowired
+	private ProductBusinessServiceInterface service;
+
 	//Displays the register view.
 	@GetMapping("")
 	public String display(Model model)
@@ -38,6 +47,10 @@ public class RegistrationController
 				userRegistrationModel.getPassword(), userRegistrationModel.getFname(), 
 				userRegistrationModel.getLname(), userRegistrationModel.getEmail(), 
 				userRegistrationModel.getPhone()));
+		List<ProductModel> products = service.getProducts();
+		model.addAttribute("title", "Product List");
+		model.addAttribute("products", products);
+
 		return "products";
 	}
 }
