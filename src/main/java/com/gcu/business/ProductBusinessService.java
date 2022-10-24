@@ -6,9 +6,10 @@ import com.gcu.model.ProductModel;
 
 public class ProductBusinessService implements ProductBusinessServiceInterface {
 
+	List<ProductModel> productList = new ArrayList<ProductModel>();
 	@Override
 	public List<ProductModel> getProducts() {
-		List<ProductModel> productList = new ArrayList<ProductModel>();
+		//List<ProductModel> productList = new ArrayList<ProductModel>();
 		productList.add(new ProductModel(105, "Test", 10, "Test"));
 		return productList;
 	}
@@ -20,4 +21,8 @@ public class ProductBusinessService implements ProductBusinessServiceInterface {
 	public void destroy() {
 		System.out.println("In the ProductBusinessService.destroy()");
 	}
+	public void addProduct(ProductModel item) {
+		productList.add(new ProductModel(item.getId(), item.getName(), item.getPrice(), item.getDescription()));
+	}
+	
 }
