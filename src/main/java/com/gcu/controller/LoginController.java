@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gcu.model.UserLoginModel;
 import com.gcu.model.ProductModel;
-import com.gcu.business.ProductBusinessServiceInterface;
+import com.gcu.business.ProductBusinessService;
 
 import java.util.*;
 
@@ -20,7 +20,7 @@ import java.util.*;
 public class LoginController {
 	
 	@Autowired
-	private ProductBusinessServiceInterface service;
+	private ProductBusinessService service;
 	
 	//Displays the login view.
 	@GetMapping("")
