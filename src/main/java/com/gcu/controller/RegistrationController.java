@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.gcu.business.ProductBusinessService;
+import com.gcu.business.ProductBusinessServiceInterface;
 import com.gcu.model.ProductModel;
 import com.gcu.model.UserRegistrationModel;
 
@@ -21,7 +21,7 @@ import com.gcu.model.UserRegistrationModel;
 public class RegistrationController
 {
 	@Autowired
-	private ProductBusinessService service;
+	private ProductBusinessServiceInterface service;
 
 	//Displays the register view.
 	@GetMapping("")

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.gcu.business.ProductBusinessService;
+import com.gcu.business.ProductBusinessServiceInterface;
 import com.gcu.model.ProductModel;
 
 
@@ -21,7 +21,7 @@ import com.gcu.model.ProductModel;
 public class ProductController
 {
 	@Autowired
-	private ProductBusinessService service;
+	private ProductBusinessServiceInterface service;
 
 	//Displays the new product view.
 	@GetMapping("new")
@@ -46,8 +46,10 @@ public class ProductController
 				productModel.getId(), 
 				productModel.getName(), productModel.getPrice(), 
 				productModel.getDescription()));
+		System.out.println("Before");
 		service.addProduct(productModel);
 		List<ProductModel> products = service.getProducts();
+		System.out.println("After: " + products.size());
 		model.addAttribute("title", "Product List");
 		model.addAttribute("products", products);
 		return "products";

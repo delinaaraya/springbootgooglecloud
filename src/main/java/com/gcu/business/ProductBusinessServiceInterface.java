@@ -8,4 +8,5 @@ public interface ProductBusinessServiceInterface {
 	public List<ProductModel> getProducts();
 	public void init();
 	public void destroy();
+	public void addProduct(ProductModel item);
 }

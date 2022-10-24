@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 
 public class ProductModel {
 	//The properties for the product.
-	@Min(value=1, message="Id must be 1 character")
+	//@Min(value=1, message="Id must be 1 character")
 	private int id;
 	
 	@Size(min=1, max=32, message="Product name must be between 1 and 32 characters")
@@ -54,7 +54,15 @@ public class ProductModel {
 		this.description = description;
 	}
 	//Empty class constructor.
+	/*
 	public ProductModel() {
 		//this(0, " ", 0, " ");
+	}
+	*/
+	public ProductModel() {
+		this.id = 0;
+		this.name = "";
+		this.price = 0;
+		this.description = "";
 	}
 }

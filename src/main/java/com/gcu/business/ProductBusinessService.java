@@ -23,6 +23,7 @@ public class ProductBusinessService implements ProductBusinessServiceInterface {
 	}
 	public void addProduct(ProductModel item) {
 		productList.add(new ProductModel(item.getId(), item.getName(), item.getPrice(), item.getDescription()));
+		System.out.println(item.getId() + " " + item.getName() + " " + item.getPrice() + " " + item.getDescription());
 	}
 	
 }

@@ -12,8 +12,8 @@ import com.gcu.business.*;
 public class SpringConfig {
 	
 	@Bean(name="productBusinessService", initMethod="init", destroyMethod="destroy")
-	@Scope(value="prototype", proxyMode=ScopedProxyMode.TARGET_CLASS)
-	@SessionScope
+	//@Scope(value="prototype", proxyMode=ScopedProxyMode.TARGET_CLASS)
+	//@SessionScope
 	public ProductBusinessService getProductsBusiness() {
 		return new ProductBusinessService();
 	}
