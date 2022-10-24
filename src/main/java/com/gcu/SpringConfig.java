@@ -13,7 +13,7 @@ public class SpringConfig {
 	
 	@Bean(name="productBusinessService", initMethod="init", destroyMethod="destroy")
 	@Scope(value="prototype", proxyMode=ScopedProxyMode.TARGET_CLASS)
-	//@SessionScope
+	@SessionScope
 	public ProductBusinessService getProductsBusiness() {
 		return new ProductBusinessService();
 	}
