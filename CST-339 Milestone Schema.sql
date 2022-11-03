@@ -34,7 +34,13 @@ CREATE TABLE IF NOT EXISTS `cst_339`.`Product` (
   `name` VARCHAR(50) NOT NULL,
   `price` FLOAT(50) NOT NULL,
   `description` VARCHAR(50) NOT NULL,
-  `vendor` VARCHAR(50) NOT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT FOREIGN KEY Product_FK_UserLogin (`vendor`) REFERENCES UserLogin(`Username`)
+  -- `vendor` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id`)
+  -- CONSTRAINT FOREIGN KEY Product_FK_UserLogin (`vendor`) REFERENCES UserLogin(`Username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
+
+INSERT INTO `cst_339`.`UserRegistration` (`UserID`,`Username`,`UserPassword`,`UserFName`,
+`UserLName`,`UserEmail`, `UserPhone`) VALUES (0, "TestUser", "TestPass", "TestF", "TestL", "Test@google.com", 1234567890);
+INSERT INTO `cst_339`.`UserLogin` (`UserID`,`Username`,`UserPassword`) VALUES (0, "TestUser", "TestPass");
+-- INSERT INTO `cst_339`.`Product` (`id`,`name`,`price`,`description`,`vendor`) VALUES (105, "TestProduct", 10, "TestDescription", "TestUser");
+INSERT INTO `cst_339`.`Product` (`id`,`name`,`price`,`description`) VALUES (105, "TestProduct", 10, "TestDescription");
