@@ -52,6 +52,11 @@
 			<artifactId>h2</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>1.7.0</version>
+		</dependency>
 		<!--For Spring JDBC and MySQL Database-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
