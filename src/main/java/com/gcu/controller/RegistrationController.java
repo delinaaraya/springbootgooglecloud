@@ -25,7 +25,7 @@ public class RegistrationController
 
 	//Displays the register view.
 	@GetMapping("")
-	public String display(Model model)
+	public String display(Model model) throws Exception
 	{
 		model.addAttribute("title", "Registration Form");
 		//UserModel registering = new UserRegistrationModel();
@@ -35,7 +35,7 @@ public class RegistrationController
 	
 	//Post request to add user data to the database and redirect the user to the products page.
 	@PostMapping("/doRegister")
-	public String doRegister(@Valid UserRegistrationModel userRegistrationModel, BindingResult bindingResult, Model model)
+	public String doRegister(@Valid UserRegistrationModel userRegistrationModel, BindingResult bindingResult, Model model) throws Exception
 	{
 		if (bindingResult.hasErrors())
 		{

@@ -25,7 +25,7 @@ public class ProductController
 
 	//Displays the new product view.
 	@GetMapping("new")
-	public String display(Model model)
+	public String display(Model model) throws Exception
 	{
 		model.addAttribute("title", "New Product Form");
 		//UserModel registering = new UserRegistrationModel();
@@ -35,7 +35,7 @@ public class ProductController
 	
 	//Post request to add user data to the database and redirect the user to the products page.
 	@PostMapping("doCreateProduct")
-	public String doCreateProduct(@Valid ProductModel productModel, BindingResult bindingResult, Model model)
+	public String doCreateProduct(@Valid ProductModel productModel, BindingResult bindingResult, Model model) throws Exception
 	{
 		if (bindingResult.hasErrors())
 		{
@@ -57,7 +57,7 @@ public class ProductController
 	
 	//Redirect user to the products page once login is successful.
 	@GetMapping("products")
-	public String showProducts(Model model)
+	public String showProducts(Model model) throws Exception
 	{
 		List<ProductModel> products = service.getProducts();
 		model.addAttribute("title", "Product List");

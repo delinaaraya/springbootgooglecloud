@@ -21,11 +21,11 @@ CREATE TABLE IF NOT EXISTS `cst_339`.`UserLogin` (
   `Username` VARCHAR(50) NOT NULL,
   `UserPassword` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`UserID`),
-  KEY `Regname` (`Username`),
-  KEY `Regpass` (`UserPassword`),
-  CONSTRAINT FOREIGN KEY UserLogin_FK_UserRegistration (`UserID`) REFERENCES UserRegistration(`UserID`),
-  CONSTRAINT FOREIGN KEY UserLogin_FK_UserRegistration (`Username`) REFERENCES UserRegistration(`Username`),
-  CONSTRAINT FOREIGN KEY UserLogin_FK_UserRegistration (`UserPassword`) REFERENCES UserRegistration(`UserPassword`)
+-- KEY `Regname` (`Username`),
+-- KEY `Regpass` (`UserPassword`),
+  CONSTRAINT FOREIGN KEY UserLogin_FK_UserRegistration (`UserID`) REFERENCES UserRegistration(`UserID`)
+-- CONSTRAINT FOREIGN KEY UserLogin_FK_UserRegistration (`Username`) REFERENCES UserRegistration(`Username`),
+-- CONSTRAINT FOREIGN KEY UserLogin_FK_UserRegistration (`UserPassword`) REFERENCES UserRegistration(`UserPassword`)
 ) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS `cst_339`.`Product`;

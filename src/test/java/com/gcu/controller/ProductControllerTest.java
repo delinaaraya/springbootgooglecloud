@@ -41,9 +41,9 @@ public class ProductControllerTest {
     //String returnedString;
     //BeanPropertyBindingResult br = new BeanPropertyBindingResult(pm, "productModel");
 
-    //Test case for doCreateProduct
+    //Test case for display
     @Test
-    public void tesdisplay() throws Exception {
+    public void testdisplay() throws Exception {
     	//m.addAttribute("title", "Test Case New Product");
     	//m.addAttribute("productModel", pm);
     	String returnedString = "newproduct";

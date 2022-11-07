@@ -20,6 +20,7 @@ public class ProductDAO implements DataAccessInterface<ProductModel> {
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
 	
+	//Finds all products in the database.
 	@Override
 	public List<ProductModel> findAll() {
 		String sql = "SELECT * FROM PRODUCT";
@@ -32,6 +33,7 @@ public class ProductDAO implements DataAccessInterface<ProductModel> {
 		return productList;
 	}
 	
+	//Creates a product.
 	@Override
 	public void create(ProductModel product) {
 		String sql = "INSERT INTO PRODUCT (ID, NAME, PRICE, DESCRIPTION) VALUES (?, ?, ?, ?)";

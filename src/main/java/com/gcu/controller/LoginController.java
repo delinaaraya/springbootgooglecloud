@@ -24,7 +24,7 @@ public class LoginController {
 	
 	//Displays the login view.
 	@GetMapping("")
-	public String display(Model model)
+	public String display(Model model) throws Exception
 	{
 		model.addAttribute("title", "Login");
 		UserLoginModel login = new UserLoginModel();
@@ -41,7 +41,7 @@ public class LoginController {
 	
 	//Redirect user to the products page once login is successful.
 	@PostMapping("/doLogin")
-	public String doLogin(@Valid UserLoginModel userLoginModel, BindingResult bindingResult, Model model)
+	public String doLogin(@Valid UserLoginModel userLoginModel, BindingResult bindingResult, Model model) throws Exception
 	{
 		if (bindingResult.hasErrors())
 		{
