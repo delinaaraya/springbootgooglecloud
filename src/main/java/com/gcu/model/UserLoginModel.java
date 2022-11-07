@@ -5,6 +5,8 @@ import javax.validation.constraints.Size;
 
 public class UserLoginModel {
 	//The properties used for users to log in.
+	private Long userId;
+	
 	@NotNull(message="Username is a required field")
 	@Size(min=1, max=32, message="Username must be between 1 and 32 characters")
 	private String username;
@@ -14,6 +16,12 @@ public class UserLoginModel {
 	private String password;
 
 	//Getters and setters for the class variable.
+	public Long getUserId() {
+		return userId;
+	}
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
 	public String getUsername() {
 		return username;
 	}

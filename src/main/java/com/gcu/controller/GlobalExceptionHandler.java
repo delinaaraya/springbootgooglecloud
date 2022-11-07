@@ -17,6 +17,7 @@ public class GlobalExceptionHandler {
 		return model;
 	}
 	*/
+	//Global exception handler that will catch any exception and redirect the user to a general error page.
 	@ExceptionHandler(Exception.class)
 	public String handleException(Exception e) {
 		return "error";

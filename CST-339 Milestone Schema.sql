@@ -3,7 +3,7 @@ CREATE SCHEMA IF NOT EXISTS `cst_339` DEFAULT CHARACTER SET utf8;
 USE `cst_339`;
 DROP TABLE IF EXISTS `cst_339`.`UserRegistration`;
 CREATE TABLE IF NOT EXISTS `cst_339`.`UserRegistration` (
-  `UserID` INT(15) NOT NULL,
+  `UserID` INT(15) NOT NULL AUTO_INCREMENT,
   `Username` VARCHAR(50) NOT NULL,
   `UserPassword` VARCHAR(50) NOT NULL,
   `UserFName` VARCHAR(50) NOT NULL,
@@ -41,6 +41,6 @@ CREATE TABLE IF NOT EXISTS `cst_339`.`Product` (
 
 INSERT INTO `cst_339`.`UserRegistration` (`UserID`,`Username`,`UserPassword`,`UserFName`,
 `UserLName`,`UserEmail`, `UserPhone`) VALUES (0, "TestUser", "TestPass", "TestF", "TestL", "Test@google.com", 1234567890);
-INSERT INTO `cst_339`.`UserLogin` (`UserID`,`Username`,`UserPassword`) VALUES (0, "TestUser", "TestPass");
+-- INSERT INTO `cst_339`.`UserLogin` (`UserID`,`Username`,`UserPassword`) VALUES (0, "TestUser", "TestPass");
 -- INSERT INTO `cst_339`.`Product` (`id`,`name`,`price`,`description`,`vendor`) VALUES (105, "TestProduct", 10, "TestDescription", "TestUser");
 INSERT INTO `cst_339`.`Product` (`id`,`name`,`price`,`description`) VALUES (105, "TestProduct", 10, "TestDescription");

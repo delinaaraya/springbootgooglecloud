@@ -37,19 +37,7 @@ public class ProductDAO implements DataAccessInterface<ProductModel> {
 	@Override
 	public void create(ProductModel product) {
 		String sql = "INSERT INTO PRODUCT (ID, NAME, PRICE, DESCRIPTION) VALUES (?, ?, ?, ?)";
-		/*
-		List<ProductModel> productList = new ArrayList<ProductModel>();
-		SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql);
-		while(srs.next()) {
-			productList.add(new ProductModel(srs.getInt("ID"), srs.getString("NAME"),
-					srs.getFloat("PRICE"), srs.getString("DESCRIPTION")));
-			}
-		*/
 		jdbcTemplateObject.update(sql, product.getId(), product.getName(), product.getPrice(), product.getDescription());
-		/*
-		int rows = jdbcTemplateObject.update(sql, order.getOrderNo(), order.getProductName(),
-					order.getPrice(), order.getQuantity());
-		*/
 	}
 	
 	@Override

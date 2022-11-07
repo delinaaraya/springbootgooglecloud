@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gcu.model.UserLoginModel;
+import com.gcu.model.UserRegistrationModel;
 import com.gcu.model.ProductModel;
 import com.gcu.business.ProductBusinessServiceInterface;
+import com.gcu.data.RegisterDAO;
 
 import java.util.*;
 
@@ -21,6 +23,9 @@ public class LoginController {
 	
 	@Autowired
 	private ProductBusinessServiceInterface service;
+	
+	@Autowired
+	private RegisterDAO registerDao;
 	
 	//Displays the login view.
 	@GetMapping("")
@@ -48,10 +53,20 @@ public class LoginController {
 			model.addAttribute("title", "Login");
 			return "login";
 		}
-		List<ProductModel> products = service.getProducts();
-		model.addAttribute("title", "Product List");
-		model.addAttribute("products", products);
-		System.out.println(String.format("Logged in as Username: %s \n Password: %s", userLoginModel.getUsername(), userLoginModel.getPassword()));
-		return "products";
+		List<UserRegistrationModel> registerModel = registerDao.findAll();
+		for(UserRegistrationModel urmodel: registerModel){
+			if (urmodel.getUsername().equals(userLoginModel.getUsername()) && urmodel.getPassword().equals(userLoginModel.getPassword()))
+			{
+				System.out.println("match found");
+				List<ProductModel> products = service.getProducts();
+				model.addAttribute("title", "Product List");
+				model.addAttribute("products", products);
+				System.out.println(String.format("Logged in as Username: %s \n Password: %s", userLoginModel.getUsername(), userLoginModel.getPassword()));
+				return "products";
+			}
+			
+		}
+		bindingResult.rejectValue("password", "error.password", "username and password are not found");
+		return "login";
 	}
 }

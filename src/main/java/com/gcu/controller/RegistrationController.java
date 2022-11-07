@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gcu.business.ProductBusinessServiceInterface;
+import com.gcu.data.RegisterDAO;
 import com.gcu.model.ProductModel;
 import com.gcu.model.UserRegistrationModel;
 
@@ -22,6 +23,9 @@ public class RegistrationController
 {
 	@Autowired
 	private ProductBusinessServiceInterface service;
+	
+	@Autowired
+	private RegisterDAO registerDao;
 
 	//Displays the register view.
 	@GetMapping("")
@@ -47,6 +51,7 @@ public class RegistrationController
 				userRegistrationModel.getPassword(), userRegistrationModel.getFname(), 
 				userRegistrationModel.getLname(), userRegistrationModel.getEmail(), 
 				userRegistrationModel.getPhone()));
+		registerDao.create(userRegistrationModel);
 		List<ProductModel> products = service.getProducts();
 		model.addAttribute("title", "Product List");
 		model.addAttribute("products", products);
