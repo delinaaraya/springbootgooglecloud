@@ -32,5 +32,16 @@ public class ProductBusinessService implements ProductBusinessServiceInterface {
 		service.create(item);
 		System.out.println(item.getId() + " " + item.getName() + " " + item.getPrice() + " " + item.getDescription());
 	}
-	
+	public void readProduct(ProductModel item) {
+		service.findByID(item.getId());
+		System.out.println(item.getId() + " " + item.getName() + " " + item.getPrice() + " " + item.getDescription());
+	}
+	public void updateProduct(ProductModel item) {
+		service.update(item);
+		System.out.println(item.getId() + " " + item.getName() + " " + item.getPrice() + " " + item.getDescription());
+	}
+	public void deleteProduct(ProductModel item) {
+		service.delete(item);
+		System.out.println(item.getId() + " " + item.getName() + " " + item.getPrice() + " " + item.getDescription());
+	}
 }

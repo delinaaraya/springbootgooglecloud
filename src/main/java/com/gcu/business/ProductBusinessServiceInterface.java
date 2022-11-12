@@ -9,4 +9,7 @@ public interface ProductBusinessServiceInterface {
 	public void init();
 	public void destroy();
 	public void addProduct(ProductModel item);
+	public void readProduct(ProductModel item);
+	public void updateProduct(ProductModel item);
+	public void deleteProduct(ProductModel item);
 }

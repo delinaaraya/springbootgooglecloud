@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Service;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 
 import java.util.*;
 import com.gcu.model.*;
@@ -40,13 +41,22 @@ public class ProductDAO implements DataAccessInterface<ProductModel> {
 		jdbcTemplateObject.update(sql, product.getId(), product.getName(), product.getPrice(), product.getDescription());
 	}
 	
+	//@Override
+	@SuppressWarnings("deprecation")
+	public ProductModel findByID(int id) {
+		String sql = "SELECT * FROM PRODUCT WHERE ID = ?";
+		return (ProductModel) jdbcTemplateObject.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<ProductModel>(ProductModel.class));
+	}
+	
 	@Override
 	public void update(ProductModel product) {
-		//
+		String sql = "UPDATE PRODUCT SET NAME = ?, PRICE = ?, DESCRIPTION = ? WHERE ID = ?";
+		jdbcTemplateObject.update(sql, product.getName(), product.getPrice(), product.getDescription(), product.getId());
 	}
 	
 	@Override
 	public void delete(ProductModel product) {
-		//
+		String sql = "DELETE FROM PRODUCT WHERE ID = ?";
+		jdbcTemplateObject.update(sql, product.getId());
 	}
 }

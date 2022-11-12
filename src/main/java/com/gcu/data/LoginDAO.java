@@ -39,6 +39,12 @@ public class LoginDAO implements DataAccessInterface<UserLoginModel> {
 		jdbcTemplateObject.update(sql, 2, user.getUsername(), user.getPassword());
 	}
 
+	//@Override
+	public UserLoginModel findByID(int id) {
+		//
+		return null;
+	}
+
 	@Override
 	public void update(UserLoginModel user) {
 		//

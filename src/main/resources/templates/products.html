@@ -26,6 +26,7 @@
 				<th style="text-align:center"><h5 th:text="${product.name}">Product 1</h5></th>
 				<th style="text-align:center"><h5 th:text="${product.price}">1</h5></th>
 				<th style="text-align:center"><h5 th:text="${product.description}">Product Description</h5></th>
+				<th style="text-align:center"><a th:href="@{readoneProduct/{id}(id=${product.id})}">View Product</a></th>
 			</tr>
 		</tbody>
 		<!--

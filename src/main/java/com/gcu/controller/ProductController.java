@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import com.gcu.business.ProductBusinessServiceInterface;
 import com.gcu.model.ProductModel;
@@ -63,5 +64,33 @@ public class ProductController
 		model.addAttribute("title", "Product List");
 		model.addAttribute("products", products);
 		return "products";
+	}
+	
+	@GetMapping("readoneProduct/{id}")
+	public String readOneProduct(ProductModel productModel, Model model) throws Exception 
+	{
+		service.readProduct(productModel);
+		model.addAttribute("title", "Product Information");
+		return "readoneproduct";
+	}
+	
+	//@GetMapping("updateproduct/{id}")
+	public String updateProduct(@Valid ProductModel productModel, BindingResult bindingResult, Model model) throws Exception 
+	{
+		if (bindingResult.hasErrors())
+		{
+			//model.addAttribute("title", "New Product Form");
+			//return "newproduct";
+		}
+		service.updateProduct(productModel);
+		//model.addAttribute("title", "Product Information");
+		return null;
+	}
+	
+	//@DeleteMapping("")
+	public String deleteProduct(@Valid ProductModel productModel, BindingResult bindingResult, Model model) throws Exception {
+		service.deleteProduct(productModel);
+		//
+		return null;
 	}
 }

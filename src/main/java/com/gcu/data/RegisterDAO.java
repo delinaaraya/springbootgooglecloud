@@ -40,6 +40,12 @@ public class RegisterDAO implements DataAccessInterface<UserRegistrationModel> {
 		jdbcTemplateObject.update(sql, user.getUsername(), user.getPassword(), user.getFname(), user.getLname(), user.getEmail(), user.getPhone());
 	}
 
+	//@Override
+	public UserRegistrationModel findByID(int id) {
+		//
+		return null;
+	}
+	
 	@Override
 	public void update(UserRegistrationModel user) {
 		//
