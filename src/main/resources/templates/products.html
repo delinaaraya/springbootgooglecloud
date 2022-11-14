@@ -27,25 +27,16 @@
 				<th style="text-align:center"><h5 th:text="${product.price}">1</h5></th>
 				<th style="text-align:center"><h5 th:text="${product.description}">Product Description</h5></th>
 				<th style="text-align:center"><a th:href="@{/product/readoneProduct/{id}(id=${product.id})}">View Product</a></th>
+				
+				<!--
 				<th style="text-align:center">
 					<form action="#" th:action="@{/product/doDeleteProduct/{id}(id=${product.id})}" th:object="${product}" method="post">
-					<input type="submit" value="Delete" />
+					<input type="submit" value="Delete Product" />
 					</form>
 				</th>
+				-->
 			</tr>
 		</tbody>
-		<!--
-		<thead>
-			<tr>
-				<th style="text-align:center">Placeholder</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<th style="text-align:center">Placeholder</th>
-			</tr>
-		</tbody>
-		-->
 	</table>
 	</div>
 </body>

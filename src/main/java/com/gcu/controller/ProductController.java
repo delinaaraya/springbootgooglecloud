@@ -70,6 +70,7 @@ public class ProductController
 	public String readOneProduct(ProductModel productModel, Model model) throws Exception 
 	{
 		ProductModel item = service.readProduct(productModel.getId());
+		model.addAttribute("title", "Product Information");
 		model.addAttribute("productModel", item);
 		return "readoneproduct";
 	}
@@ -83,6 +84,7 @@ public class ProductController
 			//return "newproduct";
 		}
 		ProductModel item = service.readProduct(productModel.getId());
+		model.addAttribute("title", "Edit Product");
 		model.addAttribute("productModel", item);
 		return "editproduct";
 	}
@@ -97,6 +99,7 @@ public class ProductController
 		}
 		service.updateProduct(productModel);
 		List<ProductModel> products = service.getProducts();
+		model.addAttribute("title", "Product List");
 		model.addAttribute("products", products);
 
 		return "products";
@@ -106,6 +109,7 @@ public class ProductController
 	public String deleteProduct(@Valid ProductModel productModel, BindingResult bindingResult, Model model) throws Exception {
 		service.deleteProduct(productModel);
 		List<ProductModel> products = service.getProducts();
+		model.addAttribute("title", "Product List");
 		model.addAttribute("products", products);
 
 		return "products";

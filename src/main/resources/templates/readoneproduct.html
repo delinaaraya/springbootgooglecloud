@@ -3,6 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Product Information</title>
+	<script>
+	function confirmDelete() {
+		let confirmDelete = confirm("Are you sure you want to delete this product?");
+		if (confirmDelete) {
+			alert("Done");
+			return true;
+		} else {
+			alert("Product is not deleted");
+			return false;
+		}
+	}
+	</script>
 </head>
 <body>
 <div layout:fragment="content">
@@ -23,6 +35,11 @@
 				<th style="text-align:center"><h5 th:text="${productModel.price}">1</h5></th>
 				<th style="text-align:center"><h5 th:text="${productModel.description}">Product Description</h5></th>
 				<th style="text-align:center"><a th:href="@{../updateproduct/{id}(id=${productModel.id})}">Edit Product</a></th>
+				<th style="text-align:center">
+					<form action="#" th:action="@{/product/doDeleteProduct/{id}(id=${productModel.id})}" th:object="${productModel}" method="post" onsubmit="confirmDelete()">
+					<input type="submit" value="Delete Product"/>
+					</form>
+				</th>
 			</tr>
 		</tbody>
 		<!--
