@@ -2,11 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
 <head>
 	<meta charset="UTF-8">
-	<title>Edit New Product</title>
+	<title>Create New Product</title>
 </head>
+<!--Register view-->
 <body>
 <div layout:fragment="content">
-	<form action="#" th:action="@{/product/doUpdateProduct/{id}(id=${productModel.id})}" th:object="${productModel}" method="post">
+	<form action="#" th:action="@{/product/doCreateProduct}" th:object="${productModel}" method="post">
 		<table>
 			<tr>
 				<td>Id:</td><td><input type="text" th:field="*{id}" ></td><td><h5 style="color:red" th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Id Error</h5></td>
@@ -32,4 +33,5 @@
 	</form>
 </div>
 </body>
+
 </html>

@@ -69,12 +69,12 @@ public class ProductController
 	@GetMapping("readoneProduct/{id}")
 	public String readOneProduct(ProductModel productModel, Model model) throws Exception 
 	{
-		service.readProduct(productModel);
-		model.addAttribute("title", "Product Information");
+		ProductModel item = service.readProduct(productModel.getId());
+		model.addAttribute("productModel", item);
 		return "readoneproduct";
 	}
 	
-	//@GetMapping("updateproduct/{id}")
+	@GetMapping("updateproduct/{id}")
 	public String updateProduct(@Valid ProductModel productModel, BindingResult bindingResult, Model model) throws Exception 
 	{
 		if (bindingResult.hasErrors())
@@ -82,15 +82,32 @@ public class ProductController
 			//model.addAttribute("title", "New Product Form");
 			//return "newproduct";
 		}
-		service.updateProduct(productModel);
-		//model.addAttribute("title", "Product Information");
-		return null;
+		ProductModel item = service.readProduct(productModel.getId());
+		model.addAttribute("productModel", item);
+		return "editproduct";
 	}
 	
-	//@DeleteMapping("")
+	@PostMapping("doUpdateProduct/{id}")
+	public String doUpdateProduct(@Valid ProductModel productModel, BindingResult bindingResult, Model model) throws Exception 
+	{
+		if (bindingResult.hasErrors())
+		{
+			//model.addAttribute("title", "New Product Form");
+			//return "newproduct";
+		}
+		service.updateProduct(productModel);
+		List<ProductModel> products = service.getProducts();
+		model.addAttribute("products", products);
+
+		return "products";
+	}
+	
+	@PostMapping("doDeleteProduct/{id}")
 	public String deleteProduct(@Valid ProductModel productModel, BindingResult bindingResult, Model model) throws Exception {
 		service.deleteProduct(productModel);
-		//
-		return null;
+		List<ProductModel> products = service.getProducts();
+		model.addAttribute("products", products);
+
+		return "products";
 	}
 }

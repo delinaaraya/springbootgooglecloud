@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
+<head>
+	<meta charset="UTF-8">
+	<title>CST-339 Milestone Home</title>
+</head>
+<!--Homepage view-->
+<body>
+<div layout:fragment="content">
+	<h1>Welcome to the Home Page for the CST-339 Milestone</h1>
+	<br/>
+	<img th:src="@{/images/Welcome.png}" width="260" height="167"/>
+	<br/>
+	<br/>
+	<!--Directs users to either login or register-->
+	<a href="/login/">Login</a>
+	<br/>
+	<br/>
+	<a href="/register/">Register</a>
+</div>
+</body>
+</html>
