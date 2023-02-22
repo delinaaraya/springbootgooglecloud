@@ -24,12 +24,12 @@ public class ProductDAO implements DataAccessInterface<ProductModel> {
 	//Finds all products in the database.
 	@Override
 	public List<ProductModel> findAll() {
-		String sql = "SELECT * FROM PRODUCT";
+		String sql = "SELECT * FROM Product";
 		List<ProductModel> productList = new ArrayList<ProductModel>();
 		SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql);
 		while(srs.next()) {
-			productList.add(new ProductModel(srs.getInt("ID"), srs.getString("NAME"),
-					srs.getFloat("PRICE"), srs.getString("DESCRIPTION")));
+			productList.add(new ProductModel(srs.getInt("id"), srs.getString("name"),
+					srs.getFloat("price"), srs.getString("description")));
 			}
 		return productList;
 	}
@@ -37,26 +37,26 @@ public class ProductDAO implements DataAccessInterface<ProductModel> {
 	//Creates a product.
 	@Override
 	public void create(ProductModel product) {
-		String sql = "INSERT INTO PRODUCT (ID, NAME, PRICE, DESCRIPTION) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO Product (id, name, price, description) VALUES (?, ?, ?, ?)";
 		jdbcTemplateObject.update(sql, product.getId(), product.getName(), product.getPrice(), product.getDescription());
 	}
 	
 	//@Override
 	@SuppressWarnings("deprecation")
 	public ProductModel findByID(int id) {
-		String sql = "SELECT * FROM PRODUCT WHERE ID = ?";
+		String sql = "SELECT * FROM Product WHERE id = ?";
 		return (ProductModel) jdbcTemplateObject.queryForObject(sql, new Object[] {id}, new BeanPropertyRowMapper<ProductModel>(ProductModel.class));
 	}
 	
 	@Override
 	public void update(ProductModel product) {
-		String sql = "UPDATE PRODUCT SET NAME = ?, PRICE = ?, DESCRIPTION = ? WHERE ID = ?";
+		String sql = "UPDATE Product SET name = ?, price = ?, desription = ? WHERE id = ?";
 		jdbcTemplateObject.update(sql, product.getName(), product.getPrice(), product.getDescription(), product.getId());
 	}
 	
 	@Override
 	public void delete(ProductModel product) {
-		String sql = "DELETE FROM PRODUCT WHERE ID = ?";
+		String sql = "DELETE FROM Product WHERE id = ?";
 		jdbcTemplateObject.update(sql, product.getId());
 	}
 }

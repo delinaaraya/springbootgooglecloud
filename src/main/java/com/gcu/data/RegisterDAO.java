@@ -23,7 +23,7 @@ public class RegisterDAO implements DataAccessInterface<UserRegistrationModel> {
 	//Finds all users in the database.
 	@Override
 	public List<UserRegistrationModel> findAll() {
-		String sql = "SELECT * FROM USERREGISTRATION";
+		String sql = "SELECT * FROM UserRegistration";
 		List<UserRegistrationModel> registrationList = new ArrayList<UserRegistrationModel>();
 		SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql);
 		while(srs.next()) {
@@ -36,7 +36,7 @@ public class RegisterDAO implements DataAccessInterface<UserRegistrationModel> {
 	//Creates a user.
 	@Override
 	public void create(UserRegistrationModel user) {
-		String sql = "INSERT INTO USERREGISTRATION (USERNAME, USERPASSWORD, USERFNAME, USERLNAME, USEREMAIL, USERPHONE) VALUES (?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO UserRegistration (UserName, UserPassword, UserFName, UserlName, UserEmail, UserPhone) VALUES (?, ?, ?, ?, ?, ?)";
 		jdbcTemplateObject.update(sql, user.getUsername(), user.getPassword(), user.getFname(), user.getLname(), user.getEmail(), user.getPhone());
 	}
 

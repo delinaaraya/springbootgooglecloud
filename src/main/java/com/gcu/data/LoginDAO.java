@@ -23,11 +23,11 @@ public class LoginDAO implements DataAccessInterface<UserLoginModel> {
 	//Finds all users in the database.
 	@Override
 	public List<UserLoginModel> findAll() {
-		String sql = "SELECT * FROM USERLOGIN";
+		String sql = "SELECT * FROM UserLogin";
 		List<UserLoginModel> loginList = new ArrayList<UserLoginModel>();
 		SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql);
 		while(srs.next()) {
-			loginList.add(new UserLoginModel(srs.getString("username"),srs.getString("userpassword")));
+			loginList.add(new UserLoginModel(srs.getString("Username"),srs.getString("UserPassword")));
 			}
 		return loginList;
 	}
@@ -35,7 +35,7 @@ public class LoginDAO implements DataAccessInterface<UserLoginModel> {
 	//Creates a user.
 	@Override
 	public void create(UserLoginModel user) {
-		String sql = "INSERT INTO USERLOGIN (USERID, USERNAME, USERPASSWORD) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO UserLogin (UserID, Username, UserPassword) VALUES (?, ?, ?)";
 		jdbcTemplateObject.update(sql, 2, user.getUsername(), user.getPassword());
 	}
 
